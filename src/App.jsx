@@ -6,9 +6,8 @@ import VideoDetail from './views/VideoDetail';
 import SearchFeed from './views/SearchFeed';
 
 const App = () => (
-  // 💡 HashRouter uses /#/ paths which guarantees static hosting platforms never return blank pages
   <HashRouter> 
-    <Box sx={{ backgroundColor: '#000', minHeight: '100vh' }}>
+    <Box sx={{ backgroundColor: '#0f0f0f', minHeight: '100vh' }}>
       <Navbar />
       <Routes>
         <Route path="/" exact element={<Feed />} />
