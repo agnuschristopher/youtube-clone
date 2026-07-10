@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ReactPlayer from 'react-player'; // Importing explicitly from youtube helps stability
 import { Box, Typography, Stack } from '@mui/material';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
-import Videos from '../components/Videos'; // For recommended videos layout grid
+import Videos from '../components/Videos';
 
 const VideoDetail = () => {
   const { id } = useParams();
@@ -33,18 +32,20 @@ const VideoDetail = () => {
         {/* Left Side: Video Player Container */}
         <Box flex={1}>
           <Box sx={{ width: '100%', position: 'relative', pt: '56.25%' /* 16:9 Aspect Ratio */ }}>
-            <ReactPlayer 
-              url={`https://www.youtube.com/embed/${id}`} // Use embed structure for better iframe cross-origin handling
-              className="react-player"
-              controls
-              playing
-              width="100%"
-              height="100%"
-              style={{ position: 'absolute', top: 0, left: 0 }}
-              config={{
-                youtube: {
-                  playerVars: { showinfo: 1 }
-                }
+            {/* Native Iframe replaces ReactPlayer to prevent cross-origin/HashRouter bugs */}
+            <iframe
+              src={`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`}
+              title={title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                borderRadius: '12px'
               }}
             />
           </Box>
