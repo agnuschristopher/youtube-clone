@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ReactPlayer from 'react-player/youtube'; // Importing explicitly from youtube helps stability
+import ReactPlayer from 'react-player'; // Importing explicitly from youtube helps stability
 import { Box, Typography, Stack } from '@mui/material';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
 import Videos from '../components/Videos'; // For recommended videos layout grid
