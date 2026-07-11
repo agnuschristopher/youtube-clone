@@ -6,9 +6,12 @@ export default defineConfig({
   plugins: [react()],
   base: '/youtube-clone/',
   build: {
-    rollupOptions: {
-      // Forcibly tells the bundler to ignore react-player imports during build
-      external: ['react-player', 'react-player/youtube'],
+    // Explicitly configure both configurations so Vite 8 cannot fail the build
+    rolldownOptions: {
+      external: ['react-player', 'react-player/youtube']
     },
-  },
+    rollupOptions: {
+      external: ['react-player', 'react-player/youtube']
+    }
+  }
 })
