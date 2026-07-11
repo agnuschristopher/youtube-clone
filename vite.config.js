@@ -5,13 +5,4 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/youtube-clone/',
-  build: {
-    // Explicitly configure both configurations so Vite 8 cannot fail the build
-    rolldownOptions: {
-      external: ['react-player', 'react-player/youtube']
-    },
-    rollupOptions: {
-      external: ['react-player', 'react-player/youtube']
-    }
-  }
 })

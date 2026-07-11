@@ -1,10 +1,7 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
-import { Box } from '@mui/material';
 import Feed from './views/Feed';
 import VideoDetail from './views/VideoDetail';
 import ChannelDetail from './views/ChannelDetail';
 import SearchFeed from './views/SearchFeed';
-import Navbar from './components/Navbar'; // or wherever your navbar is located
 
 const App = () => (
   <HashRouter>
